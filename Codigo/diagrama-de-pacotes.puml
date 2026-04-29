@@ -1,0 +1,148 @@
+@startuml
+
+title Diagrama de Pacotes
+
+skinparam packageStyle rectangle
+skinparam backgroundColor #FAFAFA
+skinparam package {
+  BackgroundColor #F0F3F5
+  BorderColor #2D3436
+  FontColor #2D3436
+  FontSize 12
+  FontStyle bold
+}
+
+left to right direction
+
+' CAMADA DE APRESENTAÇÃO 
+package "Camada de Apresentação - Presentation" #FFEAA7 {
+  
+  package "Controller" #FFF3E0 {
+    package "AuthController"
+    package "CompeticaoController"
+    package "InscricaoController"
+    package "LocalController"
+    package "ResultadoController"
+    package "RelatorioController"
+  }
+  
+  package "DTO (Data Transfer Object)" #FFF3E0 {
+    package "CompeticaoDTO"
+    package "AtletaDTO"
+    package "InscricaoDTO"
+    package "ResultadoDTO"
+    package "RelatorioDTO"
+  }
+  
+  package "Validator" #FFF3E0 {
+    package "CompeticaoValidator"
+    package "InscricaoValidator"
+    package "LocalValidator"
+    package "ResultadoValidator"
+  }
+}
+
+' CAMADA DE NEGÓCIO
+package "Camada de Negócio - Business" #D5E8D4 {
+  
+  package "Facade" #D5E8D4 {
+    package "SGOFacade"
+  }
+  
+  package "Service" #D5E8D4 {
+    package "CompeticaoService"
+    package "AtletaService"
+    package "InscricaoService"
+    package "LocalService"
+    package "ResultadoService"
+    package "RelatorioService"
+    package "AutenticacaoService"
+  }
+  
+  package "Security" #F8C471 {
+    package "AutenticacaoManager"
+    package "AutorizacaoManager"
+    package "JwtTokenProvider"
+    package "PasswordEncoder"
+  }
+}
+
+' CAMADA DE DADOS 
+package "Camada de Dados - Data Access" #AED6F1 {
+  
+  package "Model" #AED6F1 {
+    package "Usuario"
+    package "Atleta"
+    package "Operador"
+    package "Competicao"
+    package "Local"
+    package "Resultado"
+    package "Pais"
+    package "Inscricao"
+    package "Relatorio"
+  }
+  
+  package "Repository" #AED6F1 {
+    package "UsuarioRepository"
+    package "AtletaRepository"
+    package "CompeticaoRepository"
+    package "LocalRepository"
+    package "ResultadoRepository"
+    package "InscricaoRepository"
+    package "RelatorioRepository"
+  }
+  
+  package "DAO" #AED6F1 {
+    package "UsuarioDAO"
+    package "CompeticaoDAO"
+    package "InscricaoDAO"
+    package "ResultadoDAO"
+    package "RelatorioDAO"
+  }
+}
+
+' CAMADA DE INFRAESTRUTURA 
+package "Infraestrutura - Infrastructure" #E5E8E8 {
+  
+  package "Config" #E5E8E8 {
+    package "DatabaseConfig"
+    package "SecurityConfig"
+    package "SwaggerConfig"
+    package "CorsConfig"
+    package "CacheConfig"
+  }
+  
+  package "Exception" #FADBD8 {
+    package "GlobalExceptionHandler"
+    package "BusinessException"
+    package "NotFoundException"
+    package "ValidationException"
+    package "AuthenticationException"
+    package "AuthorizationException"
+  }
+  
+  package "Util" #E5E8E8 {
+    package "DateUtils"
+    package "ValidatorUtil"
+    package "RelatorioGenerator"
+    package "MedalhaCalculator"
+  }
+}
+
+' BANCO DE DADOS EXTERNO 
+database "Banco de Dados SGO_DB" as DB
+
+' RELACIONAMENTOS
+Controller --> Facade
+Controller --> DTO
+Controller --> Validator
+Facade --> Service
+Service --> Security
+Service --> Repository
+Service --> DAO
+DAO --> DB
+Repository --> DB
+Config --> Security
+Config --> DB
+
+@enduml
