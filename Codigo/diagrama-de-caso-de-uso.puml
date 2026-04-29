@@ -1,0 +1,61 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Operador" as Op
+actor "Atleta" as At
+actor "Usuario" as User
+
+' Herança entre atores
+User <|-- Op
+User <|-- At
+
+rectangle "Sistema de Gestão das Olimpíadas" {
+  
+  usecase "Autenticar" as AUTH
+  
+  usecase "Gerenciar Competição" as GC
+  usecase "Cadastrar Competição" as C
+  usecase "Alterar Competição" as A
+  usecase "Cancelar Competição" as Can
+  
+  usecase "Alocar Local" as AL
+  usecase "Registrar Resultados" as RR
+  usecase "Gerar Relatório de Medalhas" as GRM
+  
+  usecase "Realizar Inscrição" as RI
+  usecase "Consultar Inscrições" as CI
+  usecase "Visualizar Resultados" as VR
+  
+  ' Relações
+  Op --> GC
+  Op --> AL
+  Op --> RR
+  Op --> GRM
+  
+  At --> RI
+  At --> CI
+  
+  User --> VR
+  
+  ' Extends de Gerenciar Competicao (CRUD)
+  C ..> GC : <<extend>>
+  A ..> GC : <<extend>>
+  Can ..> GC : <<extend>>
+  
+  ' Include de autenticação
+  GC ..> AUTH : <<include>>
+  AL ..> AUTH : <<include>>
+  RR ..> AUTH : <<include>>
+  GRM ..> AUTH : <<include>>
+  RI ..> AUTH : <<include>>
+  CI ..> AUTH : <<include>>
+  
+  ' Extends para regras
+  C .> (Verificar Conflito de Horário) : <<extends>>
+  AL .> (Verificar Disponibilidade Local) : <<extends>>
+  RR .> (Validar Pódio) : <<extends>>
+  RI ..> (Verificar País Representado) : <<include>>
+}
+
+@enduml
