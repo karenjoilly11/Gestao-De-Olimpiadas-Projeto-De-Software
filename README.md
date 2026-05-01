@@ -55,11 +55,18 @@ O Sistema de Gestão das Olimpíadas (SGO) é uma plataforma integrada desenvolv
 
 ## Histórias do Usuário
 
-*   **HS01 - Cadastrar Competição**: Como Operador, desejo cadastrar novas competições (modalidade, data, hora e local) para estabelecer o calendário olímpico.
-*   **HS04 - Alocar Local de Prova**: Como Operador, desejo alocar locais específicos para evitar conflitos de horário.
-*   **HS07 - Realizar Inscrição**: Como Atleta, desejo me inscrever em uma competição representando apenas um país por modalidade.
-*   **HS05 - Registrar Resultados**: Como Operador, desejo registrar os vencedores para alimentar o quadro de medalhas.
-*   **HS06 - Gerar Relatório de Medalhas**: Como Operador, desejo visualizar o ranking oficial por país.
+| ID | Título | Descrição | Critérios de Aceite |
+| :--- | :--- | :--- | :--- |
+| **HS01** | Cadastrar Competição | **Como** Operador do sistema, **desejo** cadastrar novas competições (modalidade, data, hora e local), **para que** o calendário olímpico seja estabelecido. | Validar se há conflito de horário no local escolhido. |
+| **HS02** | Alterar Competição | **Como** Operador do sistema, **desejo** editar os dados de uma competição já cadastrada, **para que** o calendário seja mantido atualizado. | Revalidar a disponibilidade do local e conflitos de horário caso o local ou a hora sejam alterados. |
+| **HS03** | Cancelar Competição | **Como** Operador do sistema, **desejo** cancelar uma competição agendada, **para que** o local fique livre e os atletas sejam notificados. | Solicitar confirmação antes de invalidar a competição e remover a alocação do cronograma. |
+| **HS04** | Alocar Local | **Como** Operador do sistema, **desejo** alocar locais específicos para cada competição, **para evitar** eventos simultâneos no mesmo espaço. | Impedir a alocação se o local já estiver ocupado no mesmo horário. |
+| **HS05** | Registrar Resultados | **Como** Operador do sistema, **desejo** registrar os resultados finais, **para que** os vencedores sejam oficializados. | Registrar obrigatoriamente o 1º, 2º e 3º lugares para alimentar o quadro de medalhas. |
+| **HS06** | Relatório de Medalhas | **Como** Operador do sistema, **desejo** gerar relatórios de desempenho por país, **para visualizar** o ranking oficial. | O relatório deve incluir medalhas de ouro, prata e bronze. |
+| **HS07** | Realizar Inscrição | **Como** Atleta, **desejo** me inscrever em uma competição específica **para participar** das provas da minha modalidade.. | O sistema deve validar se o atleta está representando apenas um país naquela modalidade. |
+| **HS08** | Consultar Inscrições | **Como** Atleta ou Operador, **desejo** consultar a lista de inscritos **para conferir** os competidores confirmados. | - |
+| **HS09** | Visualizar Resultados | **Como** Usuário, **desejo** visualizar os resultados das competições encerradas **para acompanhar** as Olimpíadas sem precisar estar autenticado. | - |
+| **HS10** | Autenticação de Acesso | **Como** Operador ou Atleta, **desejo** realizar login no sistema **para acessar** funcionalidades restritas de gestão e inscrição. | - |
 
 ---
 
