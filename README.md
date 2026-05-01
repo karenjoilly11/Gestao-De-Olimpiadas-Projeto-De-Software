@@ -104,11 +104,11 @@ Reflete a estrutura estática do sistema, organizando as classes em pacotes de r
 
 ### 4. Diagrama de Componentes
 Ilustra a organização modular do software (Módulo de Inscrições, Alocação, Relatórios, etc.).
-<img width="600px" src="./imagens/diagrama-de-componentes.png"/>
+<img width="600px" src="./Modelagem/Componentes/Diagrama-de-componentes.png"/>
 
 ### 5. Diagrama de Implantação
 Representa a infraestrutura física, incluindo servidores de aplicação, banco de dados e dispositivos.
-<img width="600px" src="./imagens/diagrama-de-implantacao.png"/>
+<img width="600px" src="./Modelagem/Implantacao/Diagrama-de-Implantacao.png"/>
 
 ---
 
