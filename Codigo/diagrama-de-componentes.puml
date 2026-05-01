@@ -1,0 +1,60 @@
+@startuml
+title Diagrama de Componentes - Sistema de Gestão das Olimpíadas (SGO)
+
+skinparam componentStyle uml2
+
+package "Camada de Apresentação" {
+    [Interface de Usuário (Web/Mobile)] as UI
+    [API] as API
+}
+
+package "Camada de Negócio (Lógica)" {
+    component "Módulo de Competições e Operação" as CompModulo {
+        [Gestão de Competição]
+        [Validador de Conflitos]
+    }
+    
+    component "Módulo de Alocação" as AlocModulo {
+        [Gestor de Locais]
+        [Verificador de Disponibilidade]
+    }
+    
+    component "Módulo de Inscrições" as InscrModulo {
+        [Gestor de Inscrições]
+        [Validador de Nacionalidade]
+    }
+    
+    component "Módulo de Relatórios e Resultados" as RelModulo {
+        [Registro de Resultados]
+        [Gerador de Quadro de Medalhas]
+    }
+    
+    component "Módulo de Autenticação" as AuthModulo {
+        [Gerenciador de Acesso]
+    }
+}
+
+package "Camada de Infraestrutura e Dados" {
+    [Repositórios / DAO] as Repo
+    database "Banco de Dados SGO_DB" as DB
+}
+
+' Relacionamentos e Interações
+UI --> API : solicita ações
+API --> CompModulo : gerencia eventos
+API --> InscrModulo : inscreve atletas
+API --> RelModulo : consulta rankings
+API --> AuthModulo : autentica usuários
+
+CompModulo ..> AlocModulo : valida local
+InscrModulo ..> CompModulo : verifica competições
+
+CompModulo --> Repo
+InscrModulo --> Repo
+AlocModulo --> Repo
+RelModulo --> Repo
+AuthModulo --> Repo
+
+Repo --> DB
+
+@enduml
