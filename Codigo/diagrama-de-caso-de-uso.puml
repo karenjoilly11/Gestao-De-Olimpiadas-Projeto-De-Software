@@ -12,20 +12,20 @@ User <|-- At
 
 rectangle "Sistema de Gestão das Olimpíadas" {
   
-  usecase "Autenticar" as AUTH
+  usecase "HS10 - Autenticar" as AUTH
   
-  usecase "Gerenciar Competição" as GC
-  usecase "Cadastrar Competição" as C
-  usecase "Alterar Competição" as A
-  usecase "Cancelar Competição" as Can
+  usecase "HS01Gerenciar Competição" as GC
+  usecase "HS01 - Cadastrar Competição" as C
+  usecase "HS02 - Alterar Competição" as A
+  usecase "HS03 - Cancelar Competição" as Can
   
-  usecase "Alocar Local" as AL
-  usecase "Registrar Resultados" as RR
-  usecase "Gerar Relatório de Medalhas" as GRM
+  usecase "HS04 - Alocar Local" as AL
+  usecase "HS05 - Registrar Resultados" as RR
+  usecase "HS06 - Gerar Relatório de Medalhas" as GRM
   
-  usecase "Realizar Inscrição" as RI
-  usecase "Consultar Inscrições" as CI
-  usecase "Visualizar Resultados" as VR
+  usecase "HS07 - Realizar Inscrição" as RI
+  usecase "HS08 - Consultar Inscrições" as CI
+  usecase "HS09 - Visualizar Resultados" as VR
   
   ' Relações
   Op --> GC
@@ -52,10 +52,10 @@ rectangle "Sistema de Gestão das Olimpíadas" {
   CI ..> AUTH : <<include>>
   
   ' Extends para regras
-  C .> (Verificar Conflito de Horário) : <<extends>>
-  AL .> (Verificar Disponibilidade Local) : <<extends>>
-  RR .> (Validar Pódio) : <<extends>>
-  RI ..> (Verificar País Representado) : <<include>>
+  C .> (HS01 - Verificar Conflito de Horário) : <<extends>>
+  AL .> (HS04 - Verificar Disponibilidade Local) : <<extends>>
+  RR .> (HS06 - Validar Pódio) : <<extends>>
+  RI ..> (HS07 - Verificar País Representado) : <<include>>
 }
 
 @enduml
