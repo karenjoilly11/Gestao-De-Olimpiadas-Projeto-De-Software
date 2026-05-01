@@ -92,17 +92,21 @@ As funcionalidades do SGO foram projetadas para atender às necessidades de Oper
 
 ### 1. Diagrama de Caso de Uso
 Modela as interações entre os atores (Operador, Atleta e Usuário) e as funcionalidades principais.
-<img width="600px" src="./imagens/diagrama-de-caso-de-uso.png"/>
+<img width="600px" src="./Modelagem/Caso%20de%20Uso%20/diagrama-de-caso-de-uso.png"/>
 
-### 2. Diagrama de Classes e Pacotes
+### 2. Diagrama de Classes
 Reflete a estrutura estática do sistema, organizando as classes em pacotes de responsabilidade.
-<img width="600px" src="./imagens/diagrama-de-classes.png"/>
+<img width="600px" src="./Modelagem/Classe/diagrama-de-classes.png"/>
 
-### 3. Diagrama de Componentes
+### 3. Diagrama de Pacotes
+Reflete a estrutura estática do sistema, organizando as classes em pacotes de responsabilidade.
+<img width="600px" src="./Modelagem/Pacote/diagrama-de-pacotes.png"/>
+
+### 4. Diagrama de Componentes
 Ilustra a organização modular do software (Módulo de Inscrições, Alocação, Relatórios, etc.).
 <img width="600px" src="./imagens/diagrama-de-componentes.png"/>
 
-### 4. Diagrama de Implantação
+### 5. Diagrama de Implantação
 Representa a infraestrutura física, incluindo servidores de aplicação, banco de dados e dispositivos.
 <img width="600px" src="./imagens/diagrama-de-implantacao.png"/>
 
