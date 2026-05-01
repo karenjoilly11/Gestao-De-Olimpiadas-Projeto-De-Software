@@ -1,0 +1,44 @@
+@startuml
+title Diagrama de Implantação Completo - Sistema de Gestão das Olimpíadas (SGO)
+
+skinparam node {
+    BackgroundColor<<Device>> LightBlue
+    BackgroundColor<<Server>> LightYellow
+}
+
+node "Dispositivo do Usuário" <<Device>> as UserDevice {
+    node "Navegador Web" as Browser
+    node "App Mobile" as App
+}
+
+node "Servidor de Hospedagem (Frontend)" <<Server>> as WebServer {
+    artifact "SGO_Frontend (React/Static)"
+}
+
+node "Servidor de Aplicação (Backend)" <<Server>> as AppServer {
+    artifact "SGO_Backend.jar" as Backend {
+        component "API REST (Controllers)"
+        component "Módulo de Inscrições"
+        component "Módulo de Alocação"
+        component "Serviço de Relatórios"
+        component "Auth Service (JWT)"
+    }
+}
+
+node "Servidor de Banco de Dados" <<Server>> as DBServer {
+    database "PostgreSQL" as DB {
+        [SGO_DB]
+    }
+}
+
+' Conexões
+UserDevice -- WebServer : HTTPS 
+UserDevice -- AppServer : JSON/HTTPS 
+AppServer -- DBServer : JDBC/TCP
+
+note right of UserDevice
+  Acesso para Atletas, 
+  Operadores e Usuários.
+end note
+
+@enduml
