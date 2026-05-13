@@ -99,7 +99,8 @@ As funcionalidades do SGO foram projetadas para atender às necessidades de Oper
 
 ### 1. Diagrama de Caso de Uso
 Modela as interações entre os atores (Operador, Atleta e Usuário) e as funcionalidades principais.
-<img width="600px" src="./Modelagem/Caso%20de%20Uso%20/diagrama-de-caso-de-uso.png"/>
+<img width="600px" src="./Modelagem/Caso de Uso/diagrama-de-caso-de-uso.png"/>
+
 
 ### 2. Diagrama de Classes
 Reflete a estrutura estática do sistema, organizando as classes em pacotes de responsabilidade.
